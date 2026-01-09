@@ -1,18 +1,3 @@
-export const securityIntroduction = (
-    <div className="space-y-4">
-        <p className="text-muted-foreground">
-            This section provides an overview of security principles in system design,
-            including security of network, data and applications.
-        </p>
-        <div className="p-4 rounded-md bg-accent/50 border border-border/40">
-            <p className="text-sm">
-            <strong>Key Topics:</strong> Network, Database, Web Applications, DevOps
-            </p>
-        </div>
-    </div>
-);
-
-// CIA, STRIDE, Identity, Privacy, Authentication, Authorisation, Encryption, Observability, Zero Trust, Compliance, PII, Principle of Least Privilege
 export const securityConcepts = (
     <div className="space-y-6">
         <section className="space-y-3">
