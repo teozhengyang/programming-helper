@@ -1,6 +1,7 @@
 import { sections } from "@/lib/sections";
 import { ContentLayout } from "@/components/content-layout";
 import { notFound } from "next/navigation";
+import { springBootSetUp } from "../spring-boot";
 
 export default async function TechStackTopicPage({ params }: {params: Promise<{ topic: string }> }) {
     const { topic } = await params;
@@ -20,7 +21,7 @@ export default async function TechStackTopicPage({ params }: {params: Promise<{ 
                         {subsection.description}
                     </p>
                 </div>
-                
+
                 {/* Dynamically render content sections based on subsection.sections */}
                 {subsection.sections?.map((contentSection) => (
                     <section
@@ -31,12 +32,8 @@ export default async function TechStackTopicPage({ params }: {params: Promise<{ 
                         <div className="rounded-lg border border-border/40 bg-card p-8">
                             <h2 className="text-3xl font-semibold mb-4">{contentSection.name}</h2>
 
-                            {/* Placeholder for other content sections */}
-                            {contentSection.id && (
-                                <p className="text-muted-foreground">
-                                    Content for {contentSection.name} will be added soon.
-                                </p>
-                            )}
+                            {/* Spring Boot Content */}
+                            {subsection.id === 'spring-boot' && contentSection.id === 'setup' && springBootSetUp}
                         </div>
                     </section>
                 ))}
