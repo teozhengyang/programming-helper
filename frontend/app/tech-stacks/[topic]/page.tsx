@@ -2,6 +2,7 @@ import { sections } from "@/lib/sections";
 import { ContentLayout } from "@/components/content-layout";
 import { notFound } from "next/navigation";
 import { springBootSetUp } from "../spring-boot";
+import { angularSetUp } from "../angular";
 
 export default async function TechStackTopicPage({ params }: {params: Promise<{ topic: string }> }) {
     const { topic } = await params;
@@ -34,6 +35,9 @@ export default async function TechStackTopicPage({ params }: {params: Promise<{ 
 
                             {/* Spring Boot Content */}
                             {subsection.id === 'spring-boot' && contentSection.id === 'setup' && springBootSetUp}
+
+                            {/* Angular Content */}
+                            {subsection.id === 'angular' && contentSection.id === 'setup' && angularSetUp}
                         </div>
                     </section>
                 ))}
