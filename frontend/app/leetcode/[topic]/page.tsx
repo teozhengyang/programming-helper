@@ -1,6 +1,8 @@
 import { sections } from "@/lib/sections";
 import { ContentLayout } from "@/components/content-layout";
 import { notFound } from "next/navigation";
+import { prefixSumConcept, prefixSumPseudocode, prefixSumComplexity } from "../prefix-sum";
+
 
 export default async function LeetCodeTopicPage({ params }: { params: Promise<{ topic: string }> }) {
     const { topic } = await params;
@@ -30,13 +32,11 @@ export default async function LeetCodeTopicPage({ params }: { params: Promise<{ 
                     >
                         <div className="rounded-lg border border-border/40 bg-card p-8">
                             <h2 className="text-3xl font-semibold mb-4">{contentSection.name}</h2>
+                            {/* Prefix Sum Content */}
+                            {subsection.id === 'prefix-sum' && contentSection.id === 'concept' && prefixSumConcept}
+                            {subsection.id === 'prefix-sum' && contentSection.id === 'pseudocode' && prefixSumPseudocode}
+                            {subsection.id === 'prefix-sum' && contentSection.id === 'complexity' && prefixSumComplexity}
 
-                            {/* Placeholder for other content sections */}
-                            {contentSection.id && (
-                                <p className="text-muted-foreground">
-                                    Content for {contentSection.name} will be added soon.
-                                </p>
-                            )}
                         </div>
                     </section>
                 ))}

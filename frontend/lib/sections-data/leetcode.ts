@@ -6,9 +6,9 @@ export const leetcodeSection: Section =   {
     icon: 'Code2',
     subsections: [
         { 
-            id: 'array', 
-            name: 'Array', 
-            description: 'Array manipulation techniques',
+            id: 'prefix-sum', 
+            name: 'Prefix Sum', 
+            description: 'Prefix sum array technique',
             sections: [
                 { id: 'concept', name: 'Concept' },
                 { id: 'pseudocode', name: 'Pseudocode' },
