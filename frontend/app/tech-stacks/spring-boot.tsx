@@ -20,39 +20,39 @@ export const springBootSetUp = (
                 <li className="space-y-2">
                     <p className="text-muted-foreground">Set up PostgreSQL with Docker Compose (<code className="text-xs bg-muted px-1 py-0.5 rounded">docker-compose.yml</code>):</p>
                     <pre className="rounded-md bg-muted p-4 text-xs overflow-x-auto border border-border">
-                        {`services:
-                        postgres:
-                            image: postgres:17.5
-                            container_name: postgres
-                            restart: unless-stopped
-                            environment:
-                            - POSTGRES_DB=backend
-                            - POSTGRES_USER=postgres
-                            - POSTGRES_PASSWORD=changemeinprod
-                            ports:
-                            - "5432:5432"
-                            volumes:
-                            - postgres-data:/var/lib/postgresql/data
+{`services:
+    postgres:
+        image: postgres:17.5
+        container_name: postgres
+        restart: unless-stopped
+        environment:
+            - POSTGRES_DB=backend
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=changemeinprod
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
 
-                        volumes:
-                        postgres-data:`}
+volumes:
+postgres-data:`}
                     </pre>
                 </li>
                 <li className="space-y-2">
                     <p className="text-muted-foreground">Configure database in <code className="text-xs bg-muted px-1 py-0.5 rounded">src/main/resources/application.properties</code>:</p>
                     <pre className="rounded-md bg-muted p-4 text-xs overflow-x-auto border border-border">
-                        {`spring.application.name=backend
+{`spring.application.name=backend
 
-                        spring.datasource.url=jdbc:postgresql://localhost:5432/backend
-                        spring.datasource.username=postgres
-                        spring.datasource.password=changemeinprod
-                        spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/backend
+spring.datasource.username=postgres
+spring.datasource.password=changemeinprod
+spring.datasource.driver-class-name=org.postgresql.Driver
 
-                        spring.jpa.hibernate.ddl-auto=validate
-                        spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
-                        spring.flyway.enabled=true
-                        spring.flyway.locations=classpath:db/migration`}
+spring.flyway.enabled=true
+spring.flyway.locations=classpath:db/migration`}
                     </pre>
                 </li>
                 <li className="text-muted-foreground">
