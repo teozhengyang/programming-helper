@@ -1,7 +1,8 @@
 import { sections } from "@/lib/sections";
 import { ContentLayout } from "@/components/content-layout";
 import { notFound } from "next/navigation";
-import { securityConcepts } from "../security";
+import { securityConcepts, securityNetwork, securityDevOps } from "../security";
+
 
 export default async function SystemDesignTopicPage({ params }: { params: Promise<{ topic: string }> }) {
     const { topic } = await params;
@@ -34,13 +35,8 @@ export default async function SystemDesignTopicPage({ params }: { params: Promis
 
                             {/* Security Content */}
                             {contentSection.id === 'security-concepts' && securityConcepts}
-
-                            {/* Placeholder for other content sections */}
-                            {contentSection.id !== 'security-concepts' && (
-                                <p className="text-muted-foreground">
-                                    Content for {contentSection.name} will be added soon.
-                                </p>
-                            )}
+                            {contentSection.id === 'security-network' && securityNetwork}
+                            {contentSection.id === 'security-devops' && securityDevOps}
                         </div>
                     </section>
                 ))}
